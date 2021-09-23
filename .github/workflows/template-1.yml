@@ -19,5 +19,6 @@ jobs:
       - run: echo "[TEMPLATE 1] building ${{ inputs.build-args }}..."
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      - run: echo "[TEMPLATE 1] testing ${{ inputs.build-args }}..."
+      - run: echo "[TEMPLATE 1] testing ${{ inputs.test-args }}..."
