@@ -1,11 +1,23 @@
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+      build-args:
+        description: additional arguments to send to build
+        default: "--all"
+        required: false
+        type: "string"
+      test-args:
+        description: additional arguments to send to build
+        default: "--all"
+        required: false
+        type: "string"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "[TEMPLATE 1] building..."
+      - run: echo "[TEMPLATE 1] building ${{ inputs.build-args }}..."
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "[TEMPLATE 1] testing..."
+      - run: echo "[TEMPLATE 1] testing ${{ inputs.build-args }}..."
